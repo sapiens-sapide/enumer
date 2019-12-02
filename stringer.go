@@ -20,13 +20,14 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
-	"golang.org/x/tools/go/packages"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"golang.org/x/tools/go/packages"
 
 	"github.com/pascaldekloe/name"
 )
@@ -318,6 +319,10 @@ func (g *Generator) transformValueNames(values []Value, transformMethod string) 
 	case "lowercamel":
 		for i := range values {
 			values[i].name = strings.ToLower(string(values[i].name[0])) + values[i].name[1:]
+		}
+	case "upper":
+		for i := range values {
+			values[i].name = strings.ToUpper(values[i].name)
 		}
 	default:
 		return
