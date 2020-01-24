@@ -324,6 +324,10 @@ func (g *Generator) transformValueNames(values []Value, transformMethod string) 
 		for i := range values {
 			values[i].name = strings.ToUpper(values[i].name)
 		}
+	case "uppercamel":
+		for i := range values {
+			values[i].name = strings.ToUpper(string(values[i].name[0])) + strings.ToLower(values[i].name[1:])
+		}
 	default:
 		return
 	}
