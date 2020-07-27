@@ -1,4 +1,4 @@
-module github.com/aurelbec/enumer
+module github.com/sapiens-sapide/enumer
 
 go 1.14
 
